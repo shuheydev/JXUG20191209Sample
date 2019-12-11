@@ -1,2 +1,6 @@
 # JXUG20191209Sample
-20191209のJXUG平日会で登壇したときに作ったサンプル.
+20191209のJXUG平日会で登壇したときに作ったサンプルです
+
+- XamarinFormsUiPracticeにはListView,CollectionView,アニメーション,Frameなどを使ったサンプルが詰め込まれています.
+- ShellSampleXamarinはインスタ風のUIのサンプルです.
+- ShellBasicはShellの説明用の単純なサンプルです.
