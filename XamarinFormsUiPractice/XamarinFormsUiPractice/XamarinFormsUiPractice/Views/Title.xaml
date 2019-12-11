@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="XamarinFormsUiPractice.Views.Title"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            BackgroundColor="#F44336" />
+        <Label
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Margin="20"
+            FontAttributes="Bold"
+            FontSize="28"
+            Text="伝説のホップ SORACHI"
+            TextColor="White" />
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="1"
+            BackgroundColor="#d3d3d3" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="20,0"
+            HorizontalOptions="End"
+            Text="JUNE 3, 2018"
+            TextColor="Gray"
+            VerticalOptions="Center" />
+    </Grid>
+
+</ContentView>

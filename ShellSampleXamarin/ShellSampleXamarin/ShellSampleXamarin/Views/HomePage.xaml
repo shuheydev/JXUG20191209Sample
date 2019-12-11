@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ShellSampleXamarin.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="#2d2d2d"
+    Shell.BackgroundColor="Black"
+    Shell.DisabledColor="#95FFFFFF"
+    Shell.ForegroundColor="White"
+    Shell.TabBarBackgroundColor="Black"
+    Shell.TabBarForegroundColor="Black"
+    Shell.TitleColor="Blue"
+    Shell.UnselectedColor="#B4FFFFFF"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackLayout BackgroundColor="Black">
+                            <Frame
+                                Padding="5"
+                                BackgroundColor="Black"
+                                BorderColor="Gray">
+                                <StackLayout>
+                                    <Frame
+                                        Grid.Column="0"
+                                        Margin="5"
+                                        Padding="0,0,0,0"
+                                        CornerRadius="50"
+                                        HeightRequest="70"
+                                        HorizontalOptions="Start"
+                                        IsClippedToBounds="True"
+                                        VerticalOptions="Start"
+                                        WidthRequest="70">
+                                        <Image Aspect="AspectFill" Source="myIcon" />
+                                    </Frame>
+                                    <Label
+                                        FontSize="Small"
+                                        Text="   Your Story"
+                                        TextColor="White" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+
+                    <Frame
+                        Grid.Row="1"
+                        Margin="15,5,15,0"
+                        BackgroundColor="Black"
+                        BorderColor="Gray"
+                        HeightRequest="230">
+                        <StackLayout>
+                            <Image HeightRequest="80" Source="home_white" />
+                            <Label
+                                Margin="0,20,0,0"
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                HorizontalOptions="Center"
+                                Text="Welcome to Instagram"
+                                TextColor="White" />
+                            <Label
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="When you followpeople, you'll see the photos and videos they post here."
+                                TextColor="LightGray" />
+
+                            <Frame
+                                Padding="5"
+                                BackgroundColor="#55acee"
+                                CornerRadius="5">
+                                <Label
+                                    Margin="0"
+                                    Padding="0"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Find People to Follow"
+                                    TextColor="White" />
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout Grid.Row="2" BackgroundColor="Black">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame
+                                Padding="0,0,0,0"
+                                CornerRadius="50"
+                                HeightRequest="30"
+                                HorizontalOptions="Start"
+                                IsClippedToBounds="True"
+                                VerticalOptions="Start"
+                                WidthRequest="30">
+                                <Image Aspect="AspectFill" Source="myIcon" />
+                            </Frame>
+                            <Label
+                                Grid.Column="1"
+                                Text="shuhelohelo"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="300"
+                                Source="photo_1" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <Image
+                                x:Name="heartImage"
+                                Margin="10,5,5,5"
+                                HeightRequest="25"
+                                Source="heart_white">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_heartImage" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image
+                                Margin="10,5,5,5"
+                                HeightRequest="25"
+                                Source="chat_white" />
+                            <Image
+                                Margin="10,5,5,5"
+                                HeightRequest="25"
+                                Source="paper_plane_white" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label
+                        Grid.Row="3"
+                        Margin="7"
+                        FontAttributes="Bold"
+                        FontSize="Small"
+                        Text="Suggested for you"
+                        TextColor="White" />
+
+                    <CollectionView
+                        Grid.Row="4"
+                        HeightRequest="250"
+                        ItemsSource="{Binding People}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout
+                                HorizontalItemSpacing="3"
+                                Orientation="Horizontal"
+                                SnapPointsAlignment="Center"
+                                SnapPointsType="MandatorySingle"
+                                Span="1"
+                                VerticalItemSpacing="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    BackgroundColor="#2d2d2d"
+                                    HeightRequest="200"
+                                    VerticalOptions="Start"
+                                    WidthRequest="150">
+                                    <Frame
+                                        Padding="0"
+                                        BackgroundColor="Black"
+                                        BorderColor="Gray">
+                                        <StackLayout>
+                                            <Frame
+                                                Grid.Column="0"
+                                                Margin="10,17"
+                                                Padding="0,0,0,0"
+                                                CornerRadius="50"
+                                                HeightRequest="90"
+                                                HorizontalOptions="Center"
+                                                IsClippedToBounds="True"
+                                                VerticalOptions="Start"
+                                                WidthRequest="90">
+                                                <Image Aspect="AspectFill" Source="{Binding AvatarUrl}" />
+                                            </Frame>
+                                            <Label
+                                                Margin="5"
+                                                FontAttributes="Bold"
+                                                FontSize="Small"
+                                                HorizontalTextAlignment="Center"
+                                                Text="{Binding FirstName}"
+                                                TextColor="White" />
+                                            <Label
+                                                FontAttributes="Italic"
+                                                FontSize="Small"
+                                                HorizontalTextAlignment="Center"
+                                                Text="Suggested for you"
+                                                TextColor="White"
+                                                VerticalOptions="End" />
+                                            <Frame
+                                                Margin="10"
+                                                Padding="5"
+                                                BackgroundColor="#55acee"
+                                                CornerRadius="5">
+                                                <Label
+                                                    Padding="0"
+                                                    FontAttributes="Bold"
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"
+                                                    Text="Follow"
+                                                    TextColor="White" />
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <CollectionView
+                        Grid.Row="5"
+                        ItemsSource="{Binding Photos}"
+                        RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
+                        RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Grid.Row="2" BackgroundColor="Black">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame
+                                            Padding="0,0,0,0"
+                                            CornerRadius="50"
+                                            HeightRequest="30"
+                                            HorizontalOptions="Start"
+                                            IsClippedToBounds="True"
+                                            VerticalOptions="Start"
+                                            WidthRequest="30">
+                                            <Image Aspect="AspectFill" Source="myIcon" />
+                                        </Frame>
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="shuhelohelo"
+                                            TextColor="White"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Image
+                                            Aspect="AspectFill"
+                                            HeightRequest="300"
+                                            Source="{Binding PhotoUri}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Image
+                                            x:Name="heartImage"
+                                            Margin="10,5,5,5"
+                                            HeightRequest="25"
+                                            Source="heart_white">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_heartImage" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image
+                                            Margin="10,5,5,5"
+                                            HeightRequest="25"
+                                            Source="chat_white" />
+                                        <Image
+                                            Margin="10,5,5,5"
+                                            HeightRequest="25"
+                                            Source="paper_plane_white" />
+                                    </StackLayout>
+                                    <Label
+                                        FontSize="Micro"
+                                        Text="{Binding DateTime, StringFormat='{0:yyyy/M/d}'}"
+                                        TextColor="Gray" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
+
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

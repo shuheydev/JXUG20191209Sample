@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ShellBasic.Page3"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="Pink"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame
+                    Margin="50"
+                    CornerRadius="100"
+                    HasShadow="True"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    WidthRequest="100">
+                    <!--  省略  -->
+                </Frame>
+
+                <Frame
+                    Margin="50"
+                    Padding="0"
+                    CornerRadius="100"
+                    HasShadow="True"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    WidthRequest="100">
+                    <Image Aspect="AspectFill" Source="myIcon" />
+                </Frame>
+
+                <Frame
+                    Margin="50"
+                    Padding="0"
+                    CornerRadius="5"
+                    HasShadow="True"
+                    HeightRequest="300"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    WidthRequest="200">
+
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="200" />
+                            </Grid.RowDefinitions>
+                            <Image
+                                Grid.Row="0"
+                                Aspect="AspectFill"
+                                Source="photo_10" />
+                            <Frame
+                                Grid.Row="0"
+                                Margin="0,0,0,-90"
+                                Padding="0"
+                                CornerRadius="100"
+                                HasShadow="False"
+                                HeightRequest="110"
+                                HorizontalOptions="Center"
+                                IsClippedToBounds="True"
+                                VerticalOptions="Center"
+                                WidthRequest="110">
+                                <Frame
+                                    Padding="0"
+                                    CornerRadius="100"
+                                    HasShadow="True"
+                                    HeightRequest="100"
+                                    HorizontalOptions="Center"
+                                    IsClippedToBounds="True"
+                                    VerticalOptions="Center"
+                                    WidthRequest="100">
+                                    <Image Aspect="AspectFill" Source="myIcon" />
+                                </Frame>
+                            </Frame>
+                            <StackLayout Grid.Row="1" Margin="10,50,10,0">
+                                <Label HorizontalTextAlignment="Center" Text="shuhelohelo" />
+                                <Label Text="C#大好きです!" />
+                            </StackLayout>
+                        </Grid>
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

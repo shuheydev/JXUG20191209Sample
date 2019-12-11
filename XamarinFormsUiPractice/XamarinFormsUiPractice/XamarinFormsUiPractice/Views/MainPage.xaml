@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollView>
+        <StackLayout>
+            <!--<Button Text="Shell" />-->
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="CollectionViewPage"
+                Text="CollectionView" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="RefreshViewPage"
+                Text="RefreshView" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="AnimationPage"
+                Text="Animation" />
+            <Button Text="Layout" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="ImageCirclePage"
+                Text="ImageCircle" />
+            <!--<Button Text="Lotty" />-->
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="GreatAnimationPage"
+                Text="GreatAnimation" />
+            <!--<Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="FontImageSourcePage"
+                Text="FontImageSource" />-->
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="TimeLinePage"
+                Text="TimeLine" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="ListViewPage"
+                Text="ListView" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="ProfilePage"
+                Text="Profile" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="BasicUiPage"
+                Text="BasicUI" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

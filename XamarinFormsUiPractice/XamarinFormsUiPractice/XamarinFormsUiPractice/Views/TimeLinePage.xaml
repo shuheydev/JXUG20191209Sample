@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.TimeLinePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:XamarinFormsUiPractice.Converters"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid>
+            <ListView
+                x:Name="timelineListView"
+                ItemTapped="timelineListView_ItemTapped"
+                ItemsSource="{Binding EventList}"
+                RowHeight="75"
+                SeparatorVisibility="None">
+
+                <ListView.Header>
+                    <Grid Margin="0,0,0,20" HeightRequest="200">
+                        <Image Aspect="AspectFill" Source="photo_2" />
+                        <StackLayout Padding="20,40,0,30">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Title"
+                                Text="今日のタイムライン"
+                                TextColor="White" />
+                            <Label
+                                FontSize="20"
+                                Text="{Binding Today, StringFormat='{0:yyyy年M月d日}'}"
+                                TextColor="White" />
+                        </StackLayout>
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.Footer>
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Image
+                            Grid.RowSpan="2"
+                            Aspect="Fill"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </ListView.Footer>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="MenuItem_Clicked"
+                                    CommandParameter="{Binding Id}"
+                                    Text="Delete" />
+                                <MenuItem
+                                    Clicked="MenuItem_Clicked_1"
+                                    CommandParameter="{Binding Id}"
+                                    Text="Edit" />
+                            </ViewCell.ContextActions>
+
+                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Text="{Binding InsertDateTime, StringFormat='{0:H:mm}'}"
+                                    TextColor="#E4B6C3" />
+
+                                <Label
+                                    Grid.Column="2"
+                                    Margin="20,0"
+                                    Text="{Binding Title}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="20,0"
+                                    Text="{Binding Description}"
+                                    TextColor="Gray" />
+
+                                <!--  縦線  -->
+                                <BoxView
+                                    Grid.RowSpan="2"
+                                    Grid.Column="1"
+                                    BackgroundColor="#E4B6C3"
+                                    HorizontalOptions="Center"
+                                    IsVisible="{Binding IsLast, Converter={local:NullBoolConverter}}"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="3" />
+
+                                <Image
+                                    Grid.Column="1"
+                                    HeightRequest="20"
+                                    Source="circle.png" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Frame
+                Margin="0,0,20,30"
+                Padding="10"
+                BackgroundColor="#E4B6C3"
+                CornerRadius="60"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="45">
+                <Image Aspect="AspectFill" Source="Plus" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

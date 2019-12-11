@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.AnimationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label HorizontalOptions="CenterAndExpand" Text="Welcome to Xamarin.Forms!" />
+            <custom:CircleImage
+                x:Name="myIconImage"
+                HeightRequest="100"
+                Source="myIcon">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_myIconImage" />
+                </Image.GestureRecognizers>
+            </custom:CircleImage>
+            <StackLayout
+                Margin="0,50"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                <Image
+                    x:Name="heartImage"
+                    HeightRequest="150"
+                    Source="heart">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_heartImage" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    d:Text="0"
+                    FontSize="40"
+                    Text="{Binding LikeCount}"
+                    VerticalOptions="End" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

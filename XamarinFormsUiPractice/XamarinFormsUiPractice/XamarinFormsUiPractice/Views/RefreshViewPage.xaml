@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.RefreshViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label
+                    Margin="10,25,10,10"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="下に引っ張ると写真だけリロードします" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="↓" />
+                <RefreshView Command="{Binding AvatarRefreshCommand}" IsRefreshing="{Binding IsAvatarRefreshing}">
+                    <Image
+                        x:Name="AvatarImage"
+                        HorizontalOptions="Center"
+                        Source="{Binding AvatarUri}"
+                        VerticalOptions="Center"
+                        WidthRequest="150" />
+                </RefreshView>
+
+            </StackLayout>
+
+            <RefreshView
+                Command="{Binding RefreshCommand}"
+                IsRefreshing="{Binding IsRefreshing}"
+                RefreshColor="#55acee">
+                <CollectionView ItemsSource="{Binding People}" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="0"
+                            Orientation="Vertical"
+                            SnapPointsAlignment="Start"
+                            SnapPointsType="Mandatory"
+                            Span="1"
+                            VerticalItemSpacing="0" />
+                        <!--<LinearItemsLayout
+                        ItemSpacing="8"
+                        Orientation="Vertical"
+                        SnapPointsAlignment="Start"
+                        SnapPointsType="Mandatory" />-->
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="White" RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="AUTO" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="100" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    HeightRequest="10"
+                                    HorizontalOptions="End"
+                                    Source="People.png" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Margin="5"
+                                    FontSize="Small"
+                                    Text="Follows you"
+                                    VerticalOptions="Center" />
+                                <!--<custom:CircleImage
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="10,0"
+                                    HeightRequest="70"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding AvatarUrl}"
+                                    VerticalOptions="StartAndExpand" />-->
+                                <Frame
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="10,0"
+                                    Padding="0"
+                                    CornerRadius="35"
+                                    HeightRequest="60"
+                                    HorizontalOptions="Center"
+                                    IsClippedToBounds="True"
+                                    VerticalOptions="Start"
+                                    WidthRequest="60">
+                                    <Image Aspect="AspectFill" Source="{Binding AvatarUrl}" />
+                                </Frame>
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="AUTO" />
+                                        <RowDefinition Height="AUTO" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0" Spacing="0">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Medium"
+                                                Text="{Binding AccountName}"
+                                                TextColor="Black" />
+                                            <Label Text="{Binding AccountId}" />
+                                        </StackLayout>
+                                        <Frame
+                                            Grid.Column="1"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="White"
+                                            BorderColor="#55acee"
+                                            CornerRadius="25"
+                                            HasShadow="False"
+                                            HeightRequest="28"
+                                            VerticalOptions="Start"
+                                            WidthRequest="120">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                            </Frame.GestureRecognizers>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="Center"
+                                                Text="Follow"
+                                                TextColor="#55acee"
+                                                VerticalOptions="Center" />
+                                        </Frame>
+                                    </Grid>
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Padding="0,5,5,10"
+                                        Text="{Binding Description}"
+                                        TextColor="Black" />
+                                </Grid>
+                                <!--  Separator  -->
+                                <BoxView
+                                    Grid.Row="2"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="#f4f4f4"
+                                    HeightRequest="0.5" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label
+                                Margin="10,25,10,10"
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center"
+                                Text="下に引っ張るとリストだけリロードします" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center"
+                                Text="↓" />
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

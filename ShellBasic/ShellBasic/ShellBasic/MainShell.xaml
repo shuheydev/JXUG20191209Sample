@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="ShellBasic.MainShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:ShellBasic"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView BackgroundColor="Pink" HeightRequest="150">
+                <Grid>
+                    <Image Aspect="AspectFill" Source="photo_10" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Header"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </Grid>
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:Page1}"
+            Icon="home" />
+        <ShellContent
+            Title="Favorits"
+            ContentTemplate="{DataTemplate local:Page2}"
+            Icon="heart" />
+        <ShellContent
+            Title="Contacts"
+            ContentTemplate="{DataTemplate local:Page3}"
+            Icon="People" />
+    </FlyoutItem>
+</Shell>

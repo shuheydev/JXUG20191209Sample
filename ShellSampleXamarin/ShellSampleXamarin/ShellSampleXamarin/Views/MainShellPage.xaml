@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="ShellSampleXamarin.Views.MainShellPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:ShellSampleXamarin.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    
+    mc:Ignorable="d">
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView BackgroundColor="Pink" HeightRequest="150">
+                <Grid>
+                    <Image Aspect="AspectFill" Source="photo_10" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Header"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </Grid>
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <StackLayout
+                HeightRequest="44"
+                Orientation="Horizontal"
+                Spacing="20">
+                <BoxView
+                    BackgroundColor="Red"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    WidthRequest="30" />
+                <Label
+                    FontSize="18"
+                    Text="{Binding Title}"
+                    TextColor="Red"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <StackLayout
+                HeightRequest="44"
+                Orientation="Horizontal"
+                Spacing="20">
+                <BoxView
+                    BackgroundColor="Blue"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    WidthRequest="30" />
+                <Label
+                    FontSize="18"
+                    Text="{Binding Title}"
+                    TextColor="Blue"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+
+    <FlyoutItem Title="First" FlyoutDisplayOptions="AsMultipleItems">
+        <!--  下タブ  -->
+        <Tab Title="Home" Icon="home">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Title="Search" Icon="search">
+            <ShellContent ContentTemplate="{DataTemplate local:MyPage2}" />
+        </Tab>
+        <Tab Title="Add" Icon="plus_square">
+            <ShellContent ContentTemplate="{DataTemplate local:MyPage2}" />
+        </Tab>
+        <Tab Title="Activity" Icon="heart">
+            <ShellContent ContentTemplate="{DataTemplate local:MyPage2}" />
+        </Tab>
+        <Tab Title="Profile" Icon="people_2">
+            <ShellContent ContentTemplate="{DataTemplate local:MyPage2}" />
+        </Tab>
+    </FlyoutItem>
+
+    <!--<MenuItem Text="My Menu" />
+
+    <FlyoutItem Title="Second" Icon="heart_full">
+        <Tab Title="下Tab1-1" Icon="heart">
+            <ShellContent Title="上Tab1-2" ContentTemplate="{DataTemplate local:MyPage1}" />
+    -->
+    <!--<ShellContent Title="Tab2-2" ContentTemplate="{DataTemplate local:MyPage2}"/>-->
+    <!--
+        </Tab>
+        <Tab Title="下Tab2-1">
+            <ShellContent Title="上Tab1-3" ContentTemplate="{DataTemplate local:MyPage1}" />
+            <ShellContent Title="上Tab2-3" ContentTemplate="{DataTemplate local:MyPage2}" />
+        </Tab>
+    </FlyoutItem>-->
+
+</Shell>

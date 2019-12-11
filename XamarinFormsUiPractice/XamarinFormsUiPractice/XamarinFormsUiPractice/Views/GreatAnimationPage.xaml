@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XamarinFormsUiPractice.Views"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsUiPractice.Views.GreatAnimationPage">
+    <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+
+        <Image x:Name="MainImage" Grid.Row="0" Grid.RowSpan="2" Aspect="AspectFill" Source="sorachi_beer.jpg">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Handle_Tapped" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <local:ExpandBar x:Name="ExpandBar" Grid.Row="1" Padding="0" TranslationY="1" VerticalOptions="End" />
+
+        <local:DescriptionPane x:Name="BottomFrame" Grid.Row="1" IsVisible="true" Text="ソラチエースは、北海道空知郡にあるサッポロビール原料センターで生まれました。コードネームは75K-B6-5。当初から独特の強い香りが特徴で、大切に育種され、1984年9月5日に品種登録を果たします。それはサッポロビールが手掛けたホップの初めての登録でした。" VerticalOptions="End" />
+
+        <local:Title x:Name="Title" Grid.Row="0" Margin="0,40,0,0" HorizontalOptions="Start" VerticalOptions="Start" />
+    </Grid>
+</ContentPage>

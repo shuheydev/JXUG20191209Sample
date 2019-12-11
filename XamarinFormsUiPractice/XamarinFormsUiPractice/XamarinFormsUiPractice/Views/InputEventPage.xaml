@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.InputEventPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Margin="50">
+            <Entry
+                ClearButtonVisibility="WhileEditing"
+                Placeholder="イベント名"
+                PlaceholderColor="#E4B6C3"
+                Text="{Binding Title}" />
+            <Editor
+                HeightRequest="200"
+                Placeholder="メモ"
+                PlaceholderColor="#E4B6C3"
+                Text="{Binding Description}" />
+            <Button
+                BackgroundColor="#E4B6C3"
+                Clicked="Button_Clicked"
+                CornerRadius="30"
+                HorizontalOptions="Center"
+                Text="Ok"
+                TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

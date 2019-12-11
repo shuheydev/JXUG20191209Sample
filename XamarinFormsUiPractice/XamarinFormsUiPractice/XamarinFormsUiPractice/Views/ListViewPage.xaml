@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.ListViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ListView
+            HasUnevenRows="True"
+            ItemTapped="ListView_ItemTapped"
+            ItemsSource="{Binding People}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="AUTO" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+
+                            <Image
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="10"
+                                HorizontalOptions="End"
+                                Source="People.png" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="5"
+                                FontSize="Small"
+                                Text="Follows you"
+                                VerticalOptions="Center" />
+                            <!--<custom:CircleImage
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="10,0"
+                                HeightRequest="70"
+                                HorizontalOptions="Center"
+                                Source="{Binding AvatarUrl}"
+                                VerticalOptions="StartAndExpand" />-->
+                            <Frame
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="10,0"
+                                Padding="0"
+                                CornerRadius="35"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                IsClippedToBounds="True"
+                                VerticalOptions="Start"
+                                WidthRequest="60">
+                                <Image Aspect="AspectFill" Source="{Binding AvatarUrl}" />
+                            </Frame>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="AUTO" />
+                                    <RowDefinition Height="AUTO" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" Spacing="0">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{Binding AccountName}"
+                                            TextColor="Black" />
+                                        <Label Text="{Binding AccountId}" />
+                                    </StackLayout>
+                                    <Frame
+                                        Grid.Column="1"
+                                        Margin="0,0,10,0"
+                                        Padding="0"
+                                        BackgroundColor="White"
+                                        BorderColor="#55acee"
+                                        CornerRadius="25"
+                                        HasShadow="False"
+                                        HeightRequest="28"
+                                        VerticalOptions="Start"
+                                        WidthRequest="120">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                        </Frame.GestureRecognizers>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="Center"
+                                            Text="Follow"
+                                            TextColor="#55acee"
+                                            VerticalOptions="Center" />
+                                    </Frame>
+                                </Grid>
+
+                                <Label
+                                    Grid.Row="1"
+                                    Padding="0,5,5,10"
+                                    Text="{Binding Description}"
+                                    TextColor="Black" />
+                            </Grid>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

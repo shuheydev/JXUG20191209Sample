@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.BasicUiPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Welcome to Xamarin.Forms Basic UI" />
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="Label"
+                    TextColor="Red" />
+                <Button Text="ボタンです" />
+                <CheckBox />
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="Entry"
+                    Text="これは1行のみのテキストボックスです" />
+                <Editor
+                    HeightRequest="100"
+                    Placeholder="Editor"
+                    PlaceholderColor="Pink"
+                    Text="これは複数行のテキストボックスで,端まで行くと次の行に折り返されます." />
+                <Image HeightRequest="200" Source="photo_3" />
+                <DatePicker />
+                <TimePicker />
+                <ProgressBar Progress="10" />
+                <SearchBar />
+                <Stepper />
+                <TableView />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

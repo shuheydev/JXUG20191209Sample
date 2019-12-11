@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="XamarinFormsUiPractice.Views.ExpandBar"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Image
+            Aspect="Fill"
+            HorizontalOptions="Fill"
+            Source="FadeToBlack.png" />
+        <BoxView Grid.Row="1" BackgroundColor="#181818" />
+        <Label
+            x:Name="ExpandLabel"
+            Grid.Row="1"
+            HorizontalOptions="Fill"
+            HorizontalTextAlignment="Center"
+            Text="Tap for info"
+            TextColor="#d3d3d3"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentView>

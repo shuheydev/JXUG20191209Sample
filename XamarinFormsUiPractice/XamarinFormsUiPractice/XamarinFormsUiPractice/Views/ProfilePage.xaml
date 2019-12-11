@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.ProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Image Aspect="AspectFill" Source="SNS_Header" />
+                <Image
+                    Margin="0,0,0,-1"
+                    Aspect="AspectFill"
+                    Source="CurvedMask.png"
+                    VerticalOptions="End" />
+
+                <Frame
+                    Margin="0,0,0,-230"
+                    Padding="5"
+                    BackgroundColor="White"
+                    CornerRadius="70"
+                    HasShadow="False"
+                    HeightRequest="130"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    VerticalOptions="Center">
+                    <Frame
+                        Padding="0"
+                        BorderColor="White"
+                        CornerRadius="70"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        VerticalOptions="Center">
+                        <Image Aspect="AspectFill" Source="myIcon" />
+                    </Frame>
+                </Frame>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Padding="0,50,0,0"
+                    HorizontalOptions="Center">
+                    <Label HorizontalTextAlignment="Center" Text="Shuhei" />
+                    <Label HorizontalTextAlignment="Center" Text="C#,Xamarin.Forms大好き." />
+                </StackLayout>
+
+                <Grid
+                    Grid.Row="2"
+                    Margin="0,30"
+                    ColumnSpacing="0"
+                    RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout>
+                        <Label
+                            x:Name="label_Likes"
+                            FontSize="Large"
+                            HorizontalOptions="Center"
+                            Text="{Binding Likes}" />
+                        <Label HorizontalOptions="Center" Text="Likes" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label
+                            FontSize="Large"
+                            HorizontalOptions="Center"
+                            Text="{Binding Following}" />
+                        <Label HorizontalOptions="Center" Text="Following" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                        <Label
+                            x:Name="label_Followers"
+                            FontSize="Large"
+                            HorizontalOptions="Center"
+                            Text="{Binding Followers}" />
+                        <Label HorizontalOptions="Center" Text="Followers" />
+                    </StackLayout>
+                </Grid>
+
+                <Frame
+                    Grid.Row="4"
+                    Margin="0,0,0,50"
+                    BackgroundColor="White"
+                    BorderColor="#55acee"
+                    CornerRadius="40"
+                    HasShadow="False"
+                    HeightRequest="30"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="200">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        Text="Follow"
+                        TextColor="#55acee"
+                        VerticalOptions="Center" />
+                </Frame>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

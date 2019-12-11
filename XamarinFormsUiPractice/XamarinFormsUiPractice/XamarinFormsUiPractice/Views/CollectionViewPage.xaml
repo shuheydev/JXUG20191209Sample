@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinFormsUiPractice.Views.CollectionViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="White">
+                <Label FontSize="Medium" Text="横スクロール 1行 先頭でスナップ" />
+                <!--  遅延ローディング的なものもやっている RemainingItemsThresholdReachedCommand  -->
+                <CollectionView
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    ItemSizingStrategy="MeasureFirstItem"
+                    ItemsSource="{Binding Photos}"
+                    RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
+                    RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}"
+                    SelectionChanged="CollectionView_SelectionChanged"
+                    SelectionMode="Single"
+                    VerticalOptions="Center">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="10"
+                            Orientation="Horizontal"
+                            SnapPointsAlignment="Start"
+                            SnapPointsType="Mandatory"
+                            Span="1"
+                            VerticalItemSpacing="2" />
+                        <!--<LinearItemsLayout
+                        ItemSpacing="8"
+                        Orientation="Vertical"
+                        SnapPointsAlignment="Start"
+                        SnapPointsType="Mandatory" />-->
+
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="White" WidthRequest="250">
+                                <Frame
+                                    Padding="0"
+                                    CornerRadius="10"
+                                    IsClippedToBounds="True">
+                                    <Grid>
+                                        <Image Aspect="AspectFill" Source="{Binding PhotoUri}" />
+                                        <Image
+                                            Aspect="Fill"
+                                            HeightRequest="50"
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="End" />
+                                    </Grid>
+                                </Frame>
+                                <Label
+                                    Margin="5"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}"
+                                    TextColor="White" />
+                                <Label
+                                    FontAttributes="Italic"
+                                    Text="{Binding Description}"
+                                    TextColor="White"
+                                    VerticalOptions="End" />
+
+                            </Grid>
+                            <!--  Separator  -->
+                            <!--<BoxView
+                                Grid.Row="1"
+                                BackgroundColor="Red"
+                                HeightRequest="1" />-->
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label FontSize="Medium" Text="横スクロール 1行 中央で1つずつスナップ" />
+                <CollectionView
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    ItemSizingStrategy="MeasureFirstItem"
+                    ItemsSource="{Binding Photos}"
+                    RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
+                    RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}"
+                    SelectionChanged="CollectionView_SelectionChanged"
+                    SelectionMode="Single"
+                    VerticalOptions="Center">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="10"
+                            Orientation="Horizontal"
+                            SnapPointsAlignment="Center"
+                            SnapPointsType="MandatorySingle"
+                            Span="1"
+                            VerticalItemSpacing="2" />
+                        <!--<LinearItemsLayout
+                        ItemSpacing="8"
+                        Orientation="Vertical"
+                        SnapPointsAlignment="Start"
+                        SnapPointsType="Mandatory" />-->
+
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="White" WidthRequest="250">
+                                <Frame
+                                    Padding="0"
+                                    CornerRadius="10"
+                                    IsClippedToBounds="True">
+                                    <Grid>
+                                        <Image Aspect="AspectFill" Source="{Binding PhotoUri}" />
+                                        <Image
+                                            Aspect="Fill"
+                                            HeightRequest="50"
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="End" />
+                                    </Grid>
+                                </Frame>
+                                <Label
+                                    Margin="5"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}"
+                                    TextColor="White" />
+                                <Label
+                                    FontAttributes="Italic"
+                                    Text="{Binding Description}"
+                                    TextColor="White"
+                                    VerticalOptions="End" />
+                            </Grid>
+                            <!--  Separator  -->
+                            <!--<BoxView
+                                Grid.Row="1"
+                                BackgroundColor="Red"
+                                HeightRequest="1" />-->
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label FontSize="Medium" Text="縦スクロール 2列" />
+                <CollectionView
+                    HeightRequest="500"
+                    HorizontalOptions="Center"
+                    ItemSizingStrategy="MeasureFirstItem"
+                    ItemsSource="{Binding Photos}"
+                    RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
+                    RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}"
+                    SelectionChanged="CollectionView_SelectionChanged"
+                    SelectionMode="Single"
+                    VerticalOptions="Center">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="5"
+                            Orientation="Vertical"
+                            SnapPointsType="Mandatory"
+                            Span="2"
+                            VerticalItemSpacing="5" />
+                        <!--<LinearItemsLayout
+                        ItemSpacing="8"
+                        Orientation="Vertical"
+                        SnapPointsAlignment="Start"
+                        SnapPointsType="Mandatory" />-->
+
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="White">
+                                <Image Aspect="AspectFill" Source="{Binding PhotoUri}" />
+                                <Image
+                                    Aspect="Fill"
+                                    HeightRequest="50"
+                                    HorizontalOptions="Fill"
+                                    Source="                                     "
+                                    VerticalOptions="End" />
+                                <Label
+                                    Margin="5"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}"
+                                    TextColor="White" />
+                                <Label
+                                    FontAttributes="Italic"
+                                    Text="{Binding Description}"
+                                    TextColor="White"
+                                    VerticalOptions="End" />
+                            </Grid>
+                            <!--  Separator  -->
+                            <!--<BoxView
+                                Grid.Row="1"
+                                BackgroundColor="Red"
+                                HeightRequest="1" />-->
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
