@@ -7,7 +7,7 @@ using Xamarin.Forms.Xaml;
 
 namespace XamarinFormsUiPractice.Converters
 {
-    public class NullBoolConverter : IMarkupExtension, IValueConverter
+    public class NullBoolConverter : IValueConverter, IMarkupExtension
     {
         //
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

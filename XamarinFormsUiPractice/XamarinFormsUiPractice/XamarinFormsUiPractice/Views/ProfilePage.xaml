@@ -9,7 +9,10 @@
     mc:Ignorable="d">
     <ContentPage.Content>
         <ScrollView>
-            <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid
+                BackgroundColor="Pink"
+                ColumnSpacing="0"
+                RowSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
@@ -26,12 +29,12 @@
                     VerticalOptions="End" />
 
                 <Frame
-                    Margin="0,0,0,-230"
+                    Margin="0,0,0,-180"
                     Padding="5"
                     BackgroundColor="White"
                     CornerRadius="70"
                     HasShadow="False"
-                    HeightRequest="130"
+                    HeightRequest="100"
                     HorizontalOptions="Center"
                     IsClippedToBounds="True"
                     VerticalOptions="Center">

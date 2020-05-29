@@ -109,7 +109,6 @@
                                     Text="{Binding Description}"
                                     TextColor="Black" />
                             </Grid>
-
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
