@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.302-beta" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.1.1.1-beta" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991220-pre3" />
